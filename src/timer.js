@@ -9,6 +9,7 @@ class Timer extends Component{
         super(props)
         this.state = {
           sec: 0,
+
         
         }
     
@@ -29,9 +30,11 @@ class Timer extends Component{
             const interval =setInterval(
                 ()=> {
                     this.setState({
+
+
                         
+                        sec :document.getElementById("valeur").value++
                        
-                        sec : this.state.sec  +1
                     })
                 },1000
             )  
@@ -70,7 +73,7 @@ render(){
     return(
         <div >
             <div className="d-flex justify-content-center">
-          <input type="text" onChange={this.change}  id="valeur"/>
+          <input type="text"  id="valeur"/>
           </div>
           <div className="d-flex justify-content-center">
         <h1>{String(hours).padStart(2, '0')}  : </h1>
@@ -85,10 +88,14 @@ render(){
 
         {/* BUTTONS */}
         <div className="d-flex justify-content-center">
+        <button className="pl-3 pr-3 mb-3" onClick={this.change}>Convertir</button>
+        </div>
+        <div className="d-flex justify-content-center">
         <button onClick={this.resetInput}>Reset</button>
         <button className="ml-3 mr-3" onClick={this.incrementation}>Start</button>
         <button onClick={this.stop}>Stop</button>
         </div>
+
        
 
        
